@@ -1,0 +1,748 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>MicroTools — Профессиональный набор инструментов</title>
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tools.buskersound.ru">
+    <meta property="og:image" content="https://tools.buskersound.ru/static/og-image.jpg">
+    
+    <script src="https://tools.buskersound.ru/static/main.js"></script>
+	<script src="https://cdn.tailwindcss.com"></script>
+
+        <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=106530213', 'ym');
+
+        ym(106530213, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/106530213" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+    <link rel="icon" type="image/x-icon" href="https://tools.buskersound.ru/static/favicon.ico">
+    <style>
+        .favicon-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+            gap: 20px;
+            background: #f8fafc;
+            padding: 30px;
+            border-radius: 30px;
+            border: 2px dashed #cbd5e1;
+            margin: 25px 0;
+        }
+        .fav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: 14px;
+            font-weight: 800;
+            color: #475569;
+        }
+        .fav-icon-lg {
+            font-size: 3rem;
+            margin-bottom: 8px;
+        }
+        
+        .progress-container {
+             display: none;
+             width: 100%;
+             background-color: #f1f5f9;
+             border-radius: 1rem;
+             overflow: hidden;
+             margin-top: 1rem;
+        }
+        .progress-bar-inner {
+            width: 0%;
+            height: 12px;
+            background: linear-gradient(90deg, #2563eb, #60a5fa);
+            transition: width 0.3s ease;
+            border-radius: 10px;
+        }
+        .loading-text {
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: #2563eb;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+        }
+        
+        .btn-blue { 
+            display: block; 
+            width: 100%; 
+            background-color: #2563eb; 
+            color: white; 
+            padding: 1.25rem; 
+            border-radius: 1.5rem; 
+            font-weight: 800; 
+            text-align: center; 
+            font-size: 1.1rem; 
+            transition: all 0.2s; 
+            border: none; 
+            cursor: pointer; 
+            text-transform: uppercase;
+        }
+        .btn-blue:hover { background-color: #1d4ed8; transform: translateY(-2px); shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.4); }
+        .btn-blue:active { transform: scale(0.98); }
+        
+        .loader {
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #2563eb;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 10px auto;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="bg-slate-100 min-h-screen font-sans flex flex-col">
+        <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PD2QBNXM"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+    
+        <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PD2QBNXM');</script>
+        <!-- End Google Tag Manager -->
+
+    <div class="max-w-[1600px] mx-auto p-6 md:p-10 content-grow w-full">
+        <header class="text-center mb-12">
+            <h1 class="text-5xl md:text-7xl font-black italic tracking-tighter mb-4 uppercase">
+                Micro<span class="text-blue-600">Tools</span> 🛠️
+            </h1>
+            <p class="text-slate-500 font-bold uppercase tracking-widest text-xs md:text-sm">
+                Professional Suite • Быстрые инструменты для работы с файлами
+            </p>
+        </header>
+        
+        <div class="max-w-7xl mx-auto px-2 py-6"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2 md:gap-8 items-stretch">
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🗜️</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">WebP Сжатие</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Макс. сжатие для сайтов.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=webp_push" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px] flex items-center justify-center italic text-slate-400 text-sm">Выберите изображение для иконки</div>
+                    <div class="mt-auto">
+                        <input type="file" name="file" id="f_webp_push" class="hidden" onchange="this.closest('form').dispatchEvent(new Event('submit', {cancelable: true})); this.form.submit();">
+                        <label for="f_webp_push" class="btn-blue cursor-pointer text-center block w-full">СЖАТЬ</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🌍</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Курсы Валют</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Актуальный курс через API.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=curcalc" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px]">
+                        <textarea name="data" placeholder="100 RUB to USD" class="w-full mb-4 p-4 bg-slate-100 rounded-2xl h-32 outline-none font-bold resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="btn-blue mt-auto">РАССЧИТАТЬ</button>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🪄</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Удалить фон</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">ИИ-обработка. PNG.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=rembg" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px] flex items-center justify-center italic text-slate-400 text-sm">Выберите изображение для иконки</div>
+                    <div class="mt-auto">
+                        <input type="file" name="file" id="f_rembg" class="hidden" onchange="this.closest('form').dispatchEvent(new Event('submit', {cancelable: true})); this.form.submit();">
+                        <label for="f_rembg" class="btn-blue cursor-pointer text-center block w-full">ЗАГРУЗИТЬ</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">💎</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Улучшить фото</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">2x Увеличение + резкость.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=upscale" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px] flex items-center justify-center italic text-slate-400 text-sm">Выберите изображение для иконки</div>
+                    <div class="mt-auto">
+                        <input type="file" name="file" id="f_upscale" class="hidden" onchange="this.closest('form').dispatchEvent(new Event('submit', {cancelable: true})); this.form.submit();">
+                        <label for="f_upscale" class="btn-blue cursor-pointer text-center block w-full">УЛУЧШИТЬ</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">📝</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">PDF Мастер</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Создает PDF (Кириллица FIX).</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=pdf_master" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px]">
+                        <textarea name="data" placeholder="Ваш текст..." class="w-full mb-4 p-4 bg-slate-100 rounded-2xl h-32 outline-none font-bold resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="btn-blue mt-auto">СОЗДАТЬ PDF</button>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">📲</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">QR Код</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Создать QR из ссылки.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=qrgen" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px]">
+                        <textarea name="data" placeholder="Ссылка..." class="w-full mb-4 p-4 bg-slate-100 rounded-2xl h-32 outline-none font-bold resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="btn-blue mt-auto">СОЗДАТЬ QR</button>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🔗</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Обмен файлами</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Файлы до 50МБ.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=exchange" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px] flex items-center justify-center italic text-slate-400 text-sm">Выберите изображение для иконки</div>
+                    <div class="mt-auto">
+                        <input type="file" name="file" id="f_exchange" class="hidden" onchange="this.closest('form').dispatchEvent(new Event('submit', {cancelable: true})); this.form.submit();">
+                        <label for="f_exchange" class="btn-blue cursor-pointer text-center block w-full">ЗАГРУЗИТЬ</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🔑</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Пароли</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">10 паролей в .txt</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=passgen" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px]">
+                        <textarea name="data" placeholder="Длина (16)" class="w-full mb-4 p-4 bg-slate-100 rounded-2xl h-32 outline-none font-bold resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="btn-blue mt-auto">ГЕНЕРИРОВАТЬ</button>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🖼️</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Фото Конвертер</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Преобразование в любой формат.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=photo_conv" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px]">
+                        <select name="data" class="w-full mb-4 p-4 bg-slate-100 rounded-2xl outline-none font-bold text-slate-700 appearance-none border-2 border-transparent focus:border-blue-500">
+                            <option value="pdf">В PDF</option><option value="jpg">В JPG</option><option value="png">В PNG</option><option value="bmp">В BMP</option><option value="gif">В GIF</option>
+                        </select>
+                    </div>
+                    <div class="mt-auto">
+                        <input type="file" name="file" id="f_photo_conv" class="hidden" onchange="this.closest('form').dispatchEvent(new Event('submit', {cancelable: true})); this.form.submit();">
+                        <label for="f_photo_conv" class="btn-blue cursor-pointer text-center block w-full">КОНВЕРТИРОВАТЬ</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🛰️</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Стереть GPS</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Удаление EXIF данных.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=metadata" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px] flex items-center justify-center italic text-slate-400 text-sm">Выберите изображение для иконки</div>
+                    <div class="mt-auto">
+                        <input type="file" name="file" id="f_metadata" class="hidden" onchange="this.closest('form').dispatchEvent(new Event('submit', {cancelable: true})); this.form.submit();">
+                        <label for="f_metadata" class="btn-blue cursor-pointer text-center block w-full">ОЧИСТИТЬ</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🔍</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Парсер</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Email и Телефоны.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=parser" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px]">
+                        <textarea name="data" placeholder="Текст..." class="w-full mb-4 p-4 bg-slate-100 rounded-2xl h-32 outline-none font-bold resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="btn-blue mt-auto">ИЗВЛЕЧЬ</button>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">📄</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Док Конвертер</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">В DOCX, PDF, TXT, HTML.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=doc_conv" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px]">
+                        <select name="data" class="w-full mb-4 p-4 bg-slate-100 rounded-2xl outline-none font-bold text-slate-700 appearance-none border-2 border-transparent focus:border-blue-500">
+                            <option value="pdf">В PDF</option><option value="docx">В DOCX</option><option value="txt">В TXT</option><option value="html">В HTML</option><option value="rtf">В RTF</option>
+                        </select>
+                    </div>
+                    <div class="mt-auto">
+                        <input type="file" name="file" id="f_doc_conv" class="hidden" onchange="this.closest('form').dispatchEvent(new Event('submit', {cancelable: true})); this.form.submit();">
+                        <label for="f_doc_conv" class="btn-blue cursor-pointer text-center block w-full">КОНВЕРТИРОВАТЬ</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">📉</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Сжать PDF</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Уменьшает размер файла.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=pdf_compress" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px] flex items-center justify-center italic text-slate-400 text-sm">Выберите изображение для иконки</div>
+                    <div class="mt-auto">
+                        <input type="file" name="file" id="f_pdf_compress" class="hidden" onchange="this.closest('form').dispatchEvent(new Event('submit', {cancelable: true})); this.form.submit();">
+                        <label for="f_pdf_compress" class="btn-blue cursor-pointer text-center block w-full">СЖАТЬ</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">📋</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Штрих-код</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Введите данные и выберите формат.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                
+                <form action="https://tools.buskersound.ru/process?service=barcode" method="post" class="flex flex-col gap-2 m-0 h-full">
+                    <div class="min-h-[220px] flex flex-col gap-2">
+                        <textarea name="text_data" required placeholder="Цифры или текст..." 
+                            class="w-full p-3 bg-slate-100 rounded-xl outline-none text-sm border-2 border-transparent focus:border-blue-500 resize-none h-20"></textarea>
+                        <select name="data" class="w-full p-3 bg-slate-100 rounded-xl outline-none text-sm font-bold text-slate-600 border-2 border-transparent focus:border-blue-500 cursor-pointer">
+                            <option value="code128">Code 128 (Любой текст)</option>
+                            <option value="ean13">EAN-13 (Товары, 12 цифр)</option>
+                            <option value="ean8">EAN-8 (Компактный, 7 цифр)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn-blue cursor-pointer text-center block w-full">
+                        СОЗДАТЬ
+                    </button>
+                </form>
+            
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🧾</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Чековый Принтер</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Макет чека.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=receipt_gen" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px]">
+                        <textarea name="data" placeholder="Гипермаркет; Хлеб 50; Молоко 100;" class="w-full mb-4 p-4 bg-slate-100 rounded-2xl h-32 outline-none font-bold resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="btn-blue mt-auto">ПЕЧАТЬ ЧЕКА</button>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🎨</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Рисование</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Рисуйте на документе или чистом листе.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/sign_editor?service=signature" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="flex flex-col h-full">
+                        <div class="flex-grow"></div>
+                        
+                        <div class="flex flex-col gap-2 mb-2 w-full">
+                            <input type="file" name="file" id="f_signature" class="hidden" onchange="this.form.submit()">
+                            
+                            <label for="f_signature" class="cursor-pointer text-center w-full block bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition-all shadow-lg uppercase text-sm tracking-wider transform active:scale-95">
+                                Документ
+                            </label>
+                            
+                            <button name="no_file" value="true" type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition-all shadow-lg uppercase text-sm tracking-wider transform active:scale-95">
+                                Рисовать
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">💬</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Текст-Стикер</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Редактор стикеров с обводкой.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/sticker_editor?service=sticker_gen" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px] flex items-center justify-center italic text-slate-400 text-sm">Нажмите кнопку для запуска</div>
+                    <button type="submit" class="btn-blue mt-auto">ОТКРЫТЬ РЕДАКТОР</button>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">📻</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Аудио Конвертер</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Изменить формат.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=audio_conv" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px]">
+                        <select name="data" class="w-full mb-4 p-4 bg-slate-100 rounded-2xl outline-none font-bold text-slate-700">
+                            <option value="mp3">MP3</option><option value="wav">WAV</option><option value="ogg">OGG</option><option value="aac">AAC</option><option value="flac">FLAC</option>
+                        </select>
+                    </div>
+                    <div class="mt-auto">
+                        <input type="file" name="file" id="f_audio_conv" class="hidden" onchange="this.closest('form').dispatchEvent(new Event('submit', {cancelable: true})); this.form.submit();">
+                        <label for="f_audio_conv" class="btn-blue cursor-pointer text-center block w-full">КОНВЕРТИРОВАТЬ</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🎬</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Видео Конвертер</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Конвертация до 100МБ.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=video_conv" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px]">
+                        <select name="data" class="w-full mb-4 p-4 bg-slate-100 rounded-2xl outline-none font-bold text-slate-700">
+                            <option value="mp4">MP4</option><option value="mov">MOV</option><option value="avi">AVI</option><option value="mkv">MKV</option>
+                        </select>
+                    </div>
+                    <div class="mt-auto">
+                        <input type="file" name="file" id="f_video_conv" class="hidden" onchange="this.closest('form').dispatchEvent(new Event('submit', {cancelable: true})); this.form.submit();">
+                        <label for="f_video_conv" class="btn-blue cursor-pointer text-center block w-full">КОНВЕРТИРОВАТЬ</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🎵</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Аудио из видео</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Извлечь MP3 из MP4.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=video_to_audio" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px] flex items-center justify-center italic text-slate-400 text-sm">Выберите изображение для иконки</div>
+                    <div class="mt-auto">
+                        <input type="file" name="file" id="f_video_to_audio" class="hidden" onchange="this.closest('form').dispatchEvent(new Event('submit', {cancelable: true})); this.form.submit();">
+                        <label for="f_video_to_audio" class="btn-blue cursor-pointer text-center block w-full">ИЗВЛЕЧЬ</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🌫️</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Точечное размытие</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Скройте лица на фото.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="/blur_editor?service=blur_editor" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px] flex items-center justify-center italic text-slate-400 text-sm">Выберите изображение для иконки</div>
+                    <div class="mt-auto">
+                        <input type="file" name="file" id="f_blur_editor" class="hidden" onchange="this.closest('form').dispatchEvent(new Event('submit', {cancelable: true})); this.form.submit();">
+                        <label for="f_blur_editor" class="btn-blue cursor-pointer text-center block w-full">ОТКРЫТЬ РЕДАКТОР</label>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🛡️</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Водяной знак XXL</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Загрузите фото и логотип, затем расположите его как удобно!</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="/editor?service=watermark" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px]">
+                        <div class="text-left space-y-3 mb-4">
+                            <div>
+                                <p class="text-[10px] font-black uppercase text-slate-400 mb-1">1. Основное фото</p>
+                                <input type="file" name="file" required class="w-full text-xs border-b pb-2">
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-black uppercase text-slate-400 mb-1">2. Водяной знак (PNG)</p>
+                                <input type="file" name="watermark_file" required class="w-full text-xs border-b pb-2">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-blue mt-auto">ОТКРЫТЬ РЕДАКТОР</button>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🎙️</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Аудио Превью</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Накладка голоса на трек через интервал.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=audio_preview" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="flex flex-col h-full text-center">
+                        <div class="w-full flex-grow space-y-4">
+                            <div class="p-4 bg-blue-50 rounded-2xl border-2 border-dashed border-blue-200">
+                                <input type="file" id="audioFile" name="file" class="w-full text-sm" accept="audio/*" required>
+                            </div>
+                            
+                            <div class="grid grid-cols-1 gap-4 text-left">
+                                <select id="voicePreset" name="voice_preset" class="p-2 bg-white border rounded-lg text-sm font-bold">
+                                    <option value="m_10">Мужской голос (интервал - 10 сек)</option>
+                                    <option value="m_20">Мужской голос (интервал - 20 сек)</option>
+                                    <option value="m_30">Мужской голос (интервал - 30 сек)</option>
+                                    <option value="w_10">Женский голос (интервал - 10 сек)</option>
+                                    <option value="w_20">Женский голос (интервал - 20 сек)</option>
+                                    <option value="w_30">Женский голос (интервал - 30 сек)</option>
+                                </select>
+                                
+                                <div class="px-2">
+                                    <label class="text-[10px] font-black text-gray-500 uppercase italic">
+                                        Громкость вотермарка: <span id="volVal" class="text-blue-600">100%</span>
+                                    </label>
+                                    <input type="range" id="volumeRange" name="volume" min="0" max="100" value="100" 
+                                           class="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer"
+                                           oninput="updateRealtimeVolume(this.value)">
+                                </div>
+                            </div>
+
+                            <div class="h-[80px] flex items-center shadow-inner rounded-xl bg-gray-50 px-2 mt-2 border border-gray-100">
+                                <div id="previewContainer" class="hidden w-full">
+                                    <audio id="audioPlayer" controls class="w-full h-10"></audio>
+                                </div>
+                                <div id="previewPlaceholder" class="w-full text-[10px] text-gray-400 italic font-bold uppercase">Превью появится здесь</div>
+                            </div>
+                        </div>
+
+                        <div class="w-full space-y-2 mt-4">
+                            <div id="progressContainer" class="hidden w-full bg-gray-200 rounded-full h-1.5 mb-4 overflow-hidden">
+                                <div id="progressBar" class="bg-blue-600 h-1.5 w-0 transition-all duration-300"></div>
+                            </div>
+
+                            <button type="button" onclick="generatePreview(this)" class="w-full bg-blue-600 text-white font-bold py-4 rounded-2xl hover:bg-blue-700 transition-all uppercase text-sm shadow-lg">
+                                Сгенерировать превью
+                            </button>
+                            
+                            <button type="submit" onclick="this.form.onsubmit = null;" class="w-full bg-blue-600 text-white font-bold py-4 rounded-2xl hover:bg-blue-700 transition-all uppercase text-sm shadow-lg">
+                                СОЗДАТЬ
+                            </button>
+                        </div>
+                    </div>
+
+                    <script>
+                    function updateRealtimeVolume(val) {
+                        const v = document.getElementById('volVal');
+                        if(v) v.innerText = val + '%';
+                        // Громкость плеера не трогаем, чтобы не глушить основной трек
+                    }
+
+                    async function generatePreview(btn) {
+                        const fi = document.getElementById('audioFile');
+                        if (!fi || !fi.files[0]) { alert('Выберите файл!'); return; }
+                        
+                        // Элементы прогресс-бара
+                        const pContainer = document.getElementById('progressContainer');
+                        const pBar = document.getElementById('progressBar');
+                        const ot = btn.innerText;
+
+                        // Сброс и запуск анимации
+                        btn.disabled = true;
+                        btn.innerText = 'ОБРАБОТКА...';
+                        pContainer.classList.remove('hidden');
+                        pBar.style.width = '0%';
+
+                        // Имитация прогресса до 90%
+                        let progress = 0;
+                        const interval = setInterval(() => {
+                            if (progress < 90) {
+                                progress += Math.random() * 10;
+                                if (progress > 90) progress = 90;
+                                pBar.style.width = progress + '%';
+                            }
+                        }, 400);
+
+                        const fd = new FormData();
+                        fd.append('file', fi.files[0]);
+                        fd.append('service', 'audio_preview');
+                        fd.append('voice_preset', document.getElementById('voicePreset').value);
+                        fd.append('mode', 'ajax');
+                        fd.append('volume', document.getElementById('volumeRange').value);
+
+                        try {
+                            const r = await fetch('/process', { method: 'POST', body: fd });
+                            const text = await r.text();
+                            
+                            // Завершаем полоску до 100%
+                            clearInterval(interval);
+                            pBar.style.width = '100%';
+
+                            try {
+                                const d = JSON.parse(text);
+                                if (d.url) {
+                                    setTimeout(() => {
+                                        const p = document.getElementById('audioPlayer');
+                                        p.src = d.url + (d.url.includes('?') ? '&' : '?') + 't=' + Date.now();
+                                        document.getElementById('previewPlaceholder').classList.add('hidden');
+                                        document.getElementById('previewContainer').classList.remove('hidden');
+                                        pContainer.classList.add('hidden'); // Скрываем полоску после успеха
+                                        p.play();
+                                    }, 500); // Небольшая задержка, чтобы юзер увидел 100%
+                                } else {
+                                    alert('Ошибка сервера: ' + (d.error || 'Неизвестно'));
+                                    pContainer.classList.add('hidden');
+                                }
+                            } catch (jsonErr) {
+                                console.error('Server response:', text);
+                                alert('Сервер прислал ошибку (см. консоль F12)');
+                                pContainer.classList.add('hidden');
+                            }
+                        } catch (e) {
+                            clearInterval(interval);
+                            alert('Ошибка сети: ' + e.message);
+                            pContainer.classList.add('hidden');
+                        } finally {
+                            btn.disabled = false;
+                            btn.innerText = ot;
+                        }
+                    }
+                    </script>
+                </form>
+            </div>
+        </div>
+        <div class="bg-white p-3 md:p-8 rounded-[24px] md:rounded-[40px] shadow-sm border border-slate-50 flex flex-col justify-between hover:shadow-xl transition-all duration-500 h-full">
+            <div class="text-center md:text-left mb-2">
+                <div class="text-3xl md:text-5xl mb-1 md:mb-6">🎯</div>
+                <h3 class="text-[13px] md:text-2xl font-black mb-1 uppercase italic leading-tight">Favicon Генератор</h3>
+                <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Создать .ico из любой картинки.</p>
+            </div>
+            <div class="flex-grow flex flex-col justify-end">
+                <form action="https://tools.buskersound.ru/process?service=favicon" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                    <div class="min-h-[220px] flex items-center justify-center italic text-slate-400 text-sm">Выберите изображение для иконки</div>
+                    <div class="mt-auto">
+                        <input type="file" name="file" id="f_favicon" class="hidden" onchange="this.closest('form').dispatchEvent(new Event('submit', {cancelable: true})); this.form.submit();">
+                        <label for="f_favicon" class="btn-blue cursor-pointer text-center block w-full">СОЗДАТЬ ICO</label>
+                    </div>
+                </form>
+            </div>
+        </div></div></div>
+    </div>
+
+    <footer class="mt-auto py-12 text-center border-t border-slate-50">
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 mb-6 text-[10px] md:text-xs text-slate-400 font-bold uppercase tracking-widest">
+            <a href="https://tools.buskersound.ru/privacy" class="hover:text-blue-600 transition-colors">Политика конфиденциальности</a>
+            <a href="https://tools.buskersound.ru/terms" class="hover:text-blue-600 transition-colors">Условия использования</a>
+            <a href="https://tools.buskersound.ru/refund" class="hover:text-blue-600 transition-colors">Политика возврата</a>
+        </div>
+        
+        <div class="text-[10px] md:text-xs text-slate-500 font-semibold uppercase tracking-[0.15em]">
+            &copy; 2026 MicroTools • Все права защищены
+        </div>
+    </footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    console.log("MicroTools Engine Started");
+    
+    const heavyServices = ['video_conv', 'audio_conv', 'video_to_audio', 'audio_preview', 'rembg', 'upscale'];
+
+    document.querySelectorAll('form').forEach(form => {
+        form.onsubmit = function(e) {
+            // Пытаемся достать service из action (там лежит ?service=ID)
+            const action = form.getAttribute('action') || '';
+            const urlParams = new URLSearchParams(action.split('?')[1]);
+            const service = urlParams.get('service');
+            
+            if (!service) return;
+
+            if (heavyServices.includes(service)) {
+                const btn = form.querySelector('button[type="submit"]') || form.querySelector('label.btn-blue');
+                
+                if (btn) {
+                    // Вместо удаления кнопки, блокируем её, чтобы не мешать отправке формы
+                    btn.style.pointerEvents = 'none';
+                    btn.style.opacity = '0.5';
+                    btn.innerText = 'ОБРАБОТКА...';
+                }
+
+                // Создаем контейнер прогресса
+                const container = document.createElement('div');
+                container.className = 'temp-progress-wrapper w-full mt-4';
+                container.innerHTML = `
+                    <div class="progress-container" style="display: block;">
+                        <div class="progress-bar-inner" id="pb_${service}"></div>
+                    </div>
+                    <p class="loading-text text-center">Выполняем магию... Пожалуйста, подождите</p>
+                `;
+                form.appendChild(container);
+                
+                let width = 0;
+                const pb = document.getElementById('pb_' + service);
+                const interval = setInterval(() => {
+                    if (width >= 95) {
+                        clearInterval(interval);
+                    } else {
+                        // Замедляем прогресс к концу
+                        width += width < 70 ? 0.8 : 0.2;
+                        if (pb) pb.style.width = width + '%';
+                    }
+                }, 150);
+            }
+        };
+    });
+});
+
+// Сброс при возврате назад (BFCache)
+window.addEventListener('pageshow', function(event) {
+    document.querySelectorAll('.temp-progress-wrapper').forEach(el => el.remove());
+    document.querySelectorAll('button, label.btn-blue').forEach(btn => {
+        btn.style.pointerEvents = 'auto';
+        btn.style.opacity = '1';
+        // Возвращаем исходный текст, если нужно (или просто перезагружаем)
+    });
+});
+</script>
+</body>
+</html>
