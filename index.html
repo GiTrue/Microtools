@@ -10,7 +10,6 @@
     <meta property="og:url" content="https://tools.buskersound.ru">
     <meta property="og:image" content="https://tools.buskersound.ru/static/og-image.jpg">
     
-    <script src="https://tools.buskersound.ru/static/main.js"></script>
 	<script src="https://cdn.tailwindcss.com"></script>
 
         <!-- Yandex.Metrika counter -->
@@ -743,6 +742,18 @@ window.addEventListener('pageshow', function(event) {
         // Возвращаем исходный текст, если нужно (или просто перезагружаем)
     });
 });
+</script>
+<script>
+// Если скрипт или картинка не загрузились с GitHub, пробуем взять с основного сервера
+document.addEventListener('error', function (e) {
+    if (e.target.tagName === 'IMG' || e.target.tagName === 'SCRIPT') {
+        const url = new URL(e.target.src || e.target.href);
+        if (url.host.includes('github.io')) {
+            const newUrl = 'https://tools.buskersound.ru' + url.pathname;
+            e.target.src = newUrl;
+        }
+    }
+}, true);
 </script>
 </body>
 </html>
