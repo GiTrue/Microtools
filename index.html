@@ -481,7 +481,7 @@
                 <p class="text-slate-400 text-[9px] md:text-sm font-medium leading-tight line-clamp-2">Скройте лица на фото.</p>
             </div>
             <div class="flex-grow flex flex-col justify-end">
-                <form action="/blur_editor?service=blur_editor" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
+                <form action="https://tools.buskersound.ru/blur_editor?service=blur_editor" method="post" enctype="multipart/form-data" class="m-0 flex flex-col h-full">
                     <div class="min-h-[220px] flex items-center justify-center italic text-slate-400 text-sm">Выберите изображение для иконки</div>
                     <div class="mt-auto">
                         <input type="file" name="file" id="f_blur_editor" class="hidden" onchange="this.closest('form').dispatchEvent(new Event('submit', {cancelable: true})); this.form.submit();">
@@ -611,7 +611,7 @@
                         fd.append('volume', document.getElementById('volumeRange').value);
 
                         try {
-                            const r = await fetch('/process', { method: 'POST', body: fd });
+                            const r = await fetch('https://tools.buskersound.ru/process', { method: 'POST', body: fd });
                             const text = await r.text();
                             
                             // Завершаем полоску до 100%
