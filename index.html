@@ -623,7 +623,11 @@
                                 if (d.url) {
                                     setTimeout(() => {
                                         const p = document.getElementById('audioPlayer');
-                                        p.src = d.url + (d.url.includes('?') ? '&' : '?') + 't=' + Date.now();
+                                        let audioUrl = d.url;
+										if (!audioUrl.startsWith('http')) {
+											audioUrl = 'https://tools.buskersound.ru' + audioUrl;
+										}
+										p.src = audioUrl + (audioUrl.includes('?') ? '&' : '?') + 't=' + Date.now();
                                         document.getElementById('previewPlaceholder').classList.add('hidden');
                                         document.getElementById('previewContainer').classList.remove('hidden');
                                         pContainer.classList.add('hidden'); // Скрываем полоску после успеха
