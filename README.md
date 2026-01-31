@@ -44,8 +44,8 @@
 
 ## 📸 Интерфейс сервиса
 <p align="center">
-  <img src="screenshots/main_1.png" width="45%" />
-  <img src="screenshots/main_2.png" width="45%" />
+  <img src="./screenshots/main_1.png" width="400" alt="Интерфейс 1" />
+  <img src="./screenshots/main_2.png" width="400" alt="Интерфейс 2" />
 </p>
 <p align="center"><i>Пример работы инструментов в едином современном интерфейсе</i></p>
 
